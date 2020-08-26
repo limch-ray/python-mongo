@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-mongo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: python-mong
+    spec:
+      containers:
+      - name: python-mongo
+        image: python-mongo
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+          - name: MONGO_USER
+            value: mongoadmin
+          - name: MONGO_PWD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-password
+                key: password
+          - name: MONGO_HOST
+            value: mongo.cstc.dev.svc.cluster.local

@@ -1,0 +1,47 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+	<center><h1>Cars</h1></center>
+    {% if reqs %}
+	<table id="employees" style="width:100%">
+		<tbody>
+    		<tr>
+    		{% for req in reqs %}
+        	<th>Name</th>
+        	<th>Price</th>
+    		</tr>
+    		<tr>
+            <td>{{ req.name }}</td>
+            <td>{{ req.price }}</td>
+    		</tr>
+    		{% endfor %}
+    {% endif %}
+		</tbody>
+	</table>
+	<center><a href="/add" class="button">Add Record</a></center>
