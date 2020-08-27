@@ -24,4 +24,4 @@ spec:
                 name: mongo-password
                 key: password
           - name: MONGO_HOST
-            value: mongo.cstc.dev.svc.cluster.local
+            value: mongohost
